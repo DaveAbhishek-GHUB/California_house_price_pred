@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Enter House Features</h1>
+
+    <form method="POST">
+        <label>Longitude:</label>
+        <input type="text" name="longitude">
+
+        <label>Latitude:</label>
+        <input type="text" name="latitude">
+
+        <label>Housing Median Age:</label>
+        <input type="text" name="housing_median_age">
+
+        <label>Total Rooms:</label>
+        <input type="text" name="total_rooms">
+
+        <label>Total Bedrooms:</label>
+        <input type="text" name="total_bedrooms">
+
+        <label>Population:</label>
+        <input type="text" name="population">
+
+        <label>Households:</label>
+        <input type="text" name="households">
+
+        <label>Median Income:</label>
+        <input type="text" name="median_income">
+
+        <label>Ocean Proximity:</label>
+        <select name="ocean_proximity">
+            <option value="INLAND">INLAND</option>
+            <option value="<1H OCEAN">Less than 1H from Ocean</option>
+            <option value="NEAR OCEAN">Near Ocean</option>
+            <option value="NEAR BAY">Near Bay</option>
+            <option value="ISLAND">ISLAND</option>
+        </select>
+
+        <input type="submit" value="Predict Price">
+    </form>
+
+    {% if prediction %}
+    <div class="prediction">
+        Predicted Price: {{ prediction }}
+    </div>
+    {% endif %}
+</body>
+</html>
